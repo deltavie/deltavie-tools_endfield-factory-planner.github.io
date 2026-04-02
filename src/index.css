@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to bottom, rgb(10, 10, 10), #101725);
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.1;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+.content p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  min-width: 70vw;
+  justify-content: center;
+}
+
+.search #product-search{
+  height: 4vh;
+  width: 25vw;
+  background: #fff;
+  border-radius: 0;
+  border: 0;
+  display: block;
+  padding: 10px 20px 10px 10px;
+  font-size: 100%;
+  color: #555;
+  font-weight: 400;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.search button{
+  height: 4vh;
+  width: 10vw;
+  background: rgb(253, 253, 31);
+  border-radius: .5px;
+  font-size: 100%;
+  color: rgb(0, 0, 0);
+  border: 0;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.search #product-quantity{
+  height: 4vh;
+  width: 5vw;
+  background: rgb(37, 37, 42);
+  border-radius: 0;
+  border: 0;
+  display: block;
+  padding: 0px 10px 0px 10px;
+  font-size: 100%;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.search span{
+  display: flex;
+  height: 4vh;
+  width: 2vw;
+  background: rgb(37, 37, 42);
+  border-radius: 0;
+  border: 0;
+  font-size: 100%;
+  padding: 0px 10px 0px 10px;
+  color: #ffffff;
+  font-weight: 400;
+  text-align: center;
+  align-items: center;
+  font-family
+  : Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.canvas{
+  max-height: 50vh;
+  max-width: 100vw;
+  overflow: scroll;
+}
