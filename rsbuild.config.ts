@@ -3,9 +3,9 @@ import { defineConfig } from '@rsbuild/core';
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
   output: {
-    assetPrefix: '/deltavie-tools_endfield-factory-planner.github.io.git/',
+    assetPrefix: '/deltavie-tools_endfield-factory-planner.github.io/',
   },
 html: {
-    title: 'deltavie tools endfield factory planner'
+    title: 'Endfield Factory Planner'
   },
 });
