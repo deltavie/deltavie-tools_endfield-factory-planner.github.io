@@ -55,12 +55,14 @@ export class Planner {
             ctx?.clearRect(0,0,4000,3000);
         }
         this.depthWidthTable = {};
-        this.GenerateProductChain(product, countPerMinute, 0, ctx);
+        this.productsCount = 0;
+        this.GenerateProductChain(product, countPerMinute, 0, 0, ctx);
     }
 
     private depthWidthTable: {[key: number]: number} = {}; // Tracks how wide each depth layer is.
+    private productsCount: number = 0; // How many products are in the chain used to tracking parents.
     // Function to generate chain of products needed to create product.
-    private GenerateProductChain(productKey: string, countPerMinute: number, depth: number = 0, canvasCtx2D: CanvasRenderingContext2D|null = null){
+    private GenerateProductChain(productKey: string, countPerMinute: number, parent: number=0, depth: number = 0, canvasCtx2D: CanvasRenderingContext2D|null = null){
         if(depth == 0){ // Start chain.
             if(canvasCtx2D){ // If there is a canvas output the chain.
                 canvasCtx2D.font = "1rem Arial";
@@ -80,14 +82,16 @@ export class Planner {
             var formula = product.Formulas[0]; // We will only use the first formula for now.
             var ingredientCount = 0;
             for(let ingredientsKey in formula.Ingredients){ // For each ingredient calculate how many we need.
+                this.productsCount++;
+                var myProductId = this.productsCount;
                 ingredientCount++;
                 var ingredient = formula.Ingredients[ingredientsKey];
                 var ingredientsNeeded = countPerMinute*ingredient.count;
-                this.GenerateProductChain(ingredient.name, ingredientsNeeded, depth, canvasCtx2D);
+                this.GenerateProductChain(ingredient.name, ingredientsNeeded, this.productsCount, depth, canvasCtx2D);
                 if(canvasCtx2D){ // If there is a canvas output the chain.
                     canvasCtx2D.font = "1rem Arial";
                     canvasCtx2D.fillStyle = "white";
-                    canvasCtx2D.fillText(`[${formula.Crafting}] ${ingredient.name}(${ingredientsNeeded}/min)`, 300*depth, ingredientCount*100+this.depthWidthTable[currentDepth]*100, 250);
+                    canvasCtx2D.fillText(`(${parent}) [${formula.Crafting}] ${ingredient.name}(${ingredientsNeeded}/min) (${myProductId})`, 300*depth, ingredientCount*100+this.depthWidthTable[currentDepth]*100, 250);
                 }
             }
             this.depthWidthTable[currentDepth] += formula.Ingredients.length; // Increase width by 1 for each ingredient.

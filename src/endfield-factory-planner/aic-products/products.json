@@ -136,7 +136,34 @@
             }
         ]
     },
-    "Sewage": {"Formulas": []},
+    "Sewage": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium Ore",
+                        "count": 1
+                    },
+                    {
+                        "name": "Clean Water",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cuprium",
+                        "count": 1
+                    },
+                    {
+                        "name": "Sewage",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Carbon": {
         "Formulas": [
             {

@@ -49,8 +49,8 @@ if (rootEl) {
           var productDiv = document.createElement("DIV");
           productDiv.innerHTML = key;
           productDiv.addEventListener("click", () => { // When clicked change value and close list.
-              //@ts-ignore search bar value
               var myValue = key;
+              //@ts-ignore search bar value
               searchBar.value = myValue;
               dropDown.innerHTML = '';
           })
