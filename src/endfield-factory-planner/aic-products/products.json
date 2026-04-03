@@ -3,14 +3,196 @@
     "Ferrium Ore" : {"Formulas": []},
     "Originium Ore" : {"Formulas": []},
     "Sandleaf" : {"Formulas": []},
-    "JinCao Solution": {},
-    "Yazhen Solution": {"Formulas": []},
-    "Liquid Xiranite": {"Formulas": []},
-    "Xicron Effluent": {"Formulas": []},
-    "Inert Xircon Effluent": {"Formulas": []},
+    "Aketine" : {"Formulas": []},
+    "Citrome" : {"Formulas": []},
+    "Buckflower" : {"Formulas": []},
+    "Cuprium Ore" : {"Formulas": []},
+    "Clean Water" : {"Formulas": []},
+    "JinCao Solution": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "JinCao Powder",
+                        "count": 1
+                    },
+                    {
+                        "name": "Clean Water",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Reactor Crucible",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "JinCao Solution",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Yazhen Solution": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Yazhen Powder",
+                        "count": 1
+                    },
+                    {
+                        "name": "Clean Water",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Reactor Crucible",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Yazhen Solution",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Liquid Xiranite": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Xiranite",
+                        "count": 1
+                    },
+                    {
+                        "name": "Clean Water",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Reactor Crucible",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Liquid Xiranite",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Xicron Effluent": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Liquid Xiranite",
+                        "count": 1
+                    },
+                    {
+                        "name": "Sewage",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Reactor Crucible",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Xicron Effluent",
+                        "count": 1
+                    },
+                    {
+                        "name": "Inert Xicron Effluent",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Inert Xircon Effluent": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Liquid Xiranite",
+                        "count": 1
+                    },
+                    {
+                        "name": "Sewage",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Reactor Crucible",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Xicron Effluent",
+                        "count": 1
+                    },
+                    {
+                        "name": "Inert Xicron Effluent",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Sewage": {"Formulas": []},
-    "Carbon": {"Formulas": []},
-    "Origocrust": {"Formulas": []},
+    "Carbon": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Buckflower",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Carbon",
+                        "count": 1
+                    }
+                ]
+            },
+            {
+                "Ingredients": [
+                    {
+                        "name": "Sandleaf",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Carbon",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Origocrust": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Originium Ore",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Origocrust",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Amethyst Fiber": {
         "Formulas": [
             {
@@ -51,10 +233,94 @@
             }
         ]
     },
-    "Cuprium": {"Formulas": []},
-    "Stabilized Carbon": {"Formulas": []},
-    "Packed Origocrust": {"Formulas": []},
-    "Cryston Fiber": {"Formulas": []},
+    "Cuprium": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium Ore",
+                        "count": 1
+                    },
+                    {
+                        "name": "Clean Water",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cuprium",
+                        "count": 1
+                    },
+                    {
+                        "name": "Sewage",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Stabilized Carbon": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Dense Carbon Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Stabilized Carbon",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Packed Origocrust": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Dense Origocrust Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Packed Origocrust",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cryston Fiber": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cryston Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cryston Fiber",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Steel": {
         "Formulas": [
             {
@@ -75,9 +341,94 @@
             }
         ]
     },
-    "Xiranite": {"Formulas": []},
-    "Xircon": {"Formulas": []},
-    "Carbon Powder": {"Formulas": []},
+    "Xiranite": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Stabilized Carbon",
+                        "count": 2
+                    },
+                    {
+                        "name": "Clean Water",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Forge of the Sky",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Xiranite",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Xircon": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Xicron Effluent",
+                        "count": 2
+                    },
+                    {
+                        "name": "Ferrium Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Reactor Crucible",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Xircon",
+                        "count": 1
+                    },
+                    {
+                        "name": "Sewage",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Carbon Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Carbon",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Carbon Powder",
+                        "count": 2
+                    }
+                ]
+            },
+            {
+                "Ingredients": [
+                    {
+                        "name": "Sandleaf Powder",
+                        "count": 3
+                    }
+                ],
+                "Crafting": "Refining Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Carbon Powder",
+                        "count": 2
+                    }
+                ]
+            }
+        ]
+    },
     "Originium Powder": {
         "Formulas": [
             {
@@ -98,8 +449,46 @@
             }
         ]
     },
-    "Origocrust Powder": {"Formulas": []},
-    "Amethyst Powder": {"Formulas": []},
+    "Origocrust Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Origocrust",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Origocrust Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Amethyst Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Amethyst Fiber",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Amethyst Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Ferrium Powder": {
         "Formulas": [
             {
@@ -120,7 +509,26 @@
             }
         ]
     },
-    "Cuprium Powder": {"Formulas": []},
+    "Cuprium Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cuprium Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Sandleaf Powder": {
         "Formulas": [
             {
@@ -141,10 +549,138 @@
             }
         ]
     },
-    "Aketine Powder": {"Formulas": []},
-    "Ground Buckflower Powder": {"Formulas": []},
-    "Ground Citrome Powder": {"Formulas": []},
-    "Dense Carbon Powder": {"Formulas": []},
+    "Aketine Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Aketine",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Aketine Powder",
+                        "count": 2
+                    }
+                ]
+            }
+        ]
+    },
+    "Buckflower Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Buckflower",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Buckflower Powder",
+                        "count": 2
+                    }
+                ]
+            }
+        ]
+    },
+    "Ground Buckflower Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Buckflower Powder",
+                        "count": 2
+                    },
+                    {
+                        "name": "Sandleaf Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Grinding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ground Buckflower Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Citrome Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Citrome",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Citrome Powder",
+                        "count": 2
+                    }
+                ]
+            }
+        ]
+    },
+    "Ground Citrome Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Citrome Powder",
+                        "count": 2
+                    },
+                    {
+                        "name": "Sandleaf Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Grinding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ground Citrome Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Dense Carbon Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Carbon Powder",
+                        "count": 2
+                    },
+                    {
+                        "name": "Sandleaf Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Grinding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Dense Carbon Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Dense Originium Powder": {
         "Formulas": [
             {
@@ -169,8 +705,54 @@
             }
         ]
     },
-    "Dense Origocurst Powder": {"Formulas": []},
-    "Cryston Powder": {"Formulas": []},
+    "Dense Origocurst Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Origocrust Powder",
+                        "count": 2
+                    },
+                    {
+                        "name": "Sandleaf Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Grinding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Dense Origocrust Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cryston Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Amethyst Fiber",
+                        "count": 2
+                    },
+                    {
+                        "name": "Sandleaf Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Grinding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cryston Powder",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Dense Ferrium Powder": {
         "Formulas": [
             {
@@ -195,11 +777,106 @@
             }
         ]
     },
-    "Amethyst Bottle": {"Formulas": []},
-    "Ferrium Bottle": {"Formulas": []},
-    "Cryston Bottle": {"Formulas": []},
-    "Steel Bottle": {"Formulas": []},
-    "Cuprium Bottle": {"Formulas": []},
+    "Amethyst Bottle": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Amethyst Fiber",
+                        "count": 2
+                    }
+                ],
+                "Crafting": "Moulding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Amethyst Bottle",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Ferrium Bottle": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium",
+                        "count": 2
+                    }
+                ],
+                "Crafting": "Moulding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ferrium Bottle",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cryston Bottle": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cryston Fiber",
+                        "count": 2
+                    }
+                ],
+                "Crafting": "Moulding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cryston Bottle",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Steel Bottle": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Steel",
+                        "count": 2
+                    }
+                ],
+                "Crafting": "Moulding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Steel Bottle",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cuprium Bottle": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium",
+                        "count": 2
+                    }
+                ],
+                "Crafting": "Moulding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cuprium Bottle",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Amethyst Part": {
         "Formulas": [
             {
@@ -220,8 +897,46 @@
             }
         ]
     },
-    "Ferrium Part": {"Formulas": []},
-    "Cryston Part": {"Formulas": []},
+    "Ferrium Part": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Fitting Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ferrium Part",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cryston Part": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cryston Fiber",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Fitting Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cryston Part",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Steel Part": {
         "Formulas": [
             {
@@ -242,14 +957,194 @@
             }
         ]
     },
-    "Cuprium Part": {"Formulas": []},
-    "Amethyst Component": {"Formulas": []},
-    "Ferrium Component": {"Formulas": []},
-    "Cryston Component": {"Formulas": []},
-    "Xiranite Component": {"Formulas": []},
-    "Cuprium Component": {"Formulas": []},
-    "LC Valley Battery": {"Formulas": []},
-    "SC Valley Battery": {"Formulas": []},
+    "Cuprium Part": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Fitting Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cuprium Part",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Amethyst Component": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Origocrust",
+                        "count": 5
+                    },
+                    {
+                        "name": "Amethyst Fiber",
+                        "count": 5
+                    }
+                ],
+                "Crafting": "Gearing Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Amethyst Component",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Ferrium Component": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Origocrust",
+                        "count": 10
+                    },
+                    {
+                        "name": "Ferrium",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Gearing Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Ferrium Component",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cryston Component": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Packed Origocrust",
+                        "count": 10
+                    },
+                    {
+                        "name": "Cryston Fiber",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Gearing Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Cryston Component",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Xiranite Component": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Packed Origocrust",
+                        "count": 10
+                    },
+                    {
+                        "name": "Xiranite",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Gearing Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Xiranite Component",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cuprium Component": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium Part",
+                        "count": 10
+                    },
+                    {
+                        "name": "Xiranite",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Gearing Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Cuprium Component",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "LC Valley Battery": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Amethyst Part",
+                        "count": 5
+                    },
+                    {
+                        "name": "Originium Powder",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "LC Valley Battery",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "SC Valley Battery": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Part",
+                        "count": 10
+                    },
+                    {
+                        "name": "Originium Powder",
+                        "count": 15
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "SC Valley Battery",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "HC Valley Battery": {
         "Formulas": [
             {
@@ -274,8 +1169,54 @@
             }
         ]
     },
-    "LC Wuling Battery": {"Formulas": []},
-    "SC Wuling Battery": {"Formulas": []},
+    "LC Wuling Battery": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Xiranite",
+                        "count": 5
+                    },
+                    {
+                        "name": "Dense Originium Powder",
+                        "count": 15
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "LC Wuling Battery",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "SC Wuling Battery": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Xircon",
+                        "count": 5
+                    },
+                    {
+                        "name": "Dense Originium Powder",
+                        "count": 20
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "SC Wuling Battery",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
     "Ferrium Bottle-Water": {"Formulas": []},
     "Ferrium Bottle-Jincao Solution": {"Formulas": []},
     "Ferrium Bottle-Yazhen Solution": {"Formulas": []},

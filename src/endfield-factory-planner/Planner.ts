@@ -47,22 +47,21 @@ export class Planner {
     }
 
     // Exposed function to provide functionality to app.
-    BuildProductChain(product: string, countPerMinute: number): string{
+    BuildProductChain(product: string, countPerMinute: number){
         const outputCanvas: HTMLCanvasElement | null = document.querySelector('#output-canvas'); // Temp get canvas.
         var ctx = null;
         if(outputCanvas){
             ctx = outputCanvas.getContext("2d");
             ctx?.clearRect(0,0,4000,3000);
         }
-        var productChain = this.GenerateProductChain(product, countPerMinute, "", 0, 0, ctx);
-        console.log(productChain);
-        return productChain;
+        this.depthWidthTable = {};
+        this.GenerateProductChain(product, countPerMinute, 0, ctx);
     }
 
+    private depthWidthTable: {[key: number]: number} = {}; // Tracks how wide each depth layer is.
     // Function to generate chain of products needed to create product.
-    private GenerateProductChain(productKey: string, countPerMinute: number, chain: string = "", depth: number = 0, width: number = 0, canvasCtx2D: CanvasRenderingContext2D|null = null): string{
-        if(chain == ""){ // Start chain.
-            chain = `${productKey}(${countPerMinute}/min)`;
+    private GenerateProductChain(productKey: string, countPerMinute: number, depth: number = 0, canvasCtx2D: CanvasRenderingContext2D|null = null){
+        if(depth == 0){ // Start chain.
             if(canvasCtx2D){ // If there is a canvas output the chain.
                 canvasCtx2D.font = "1rem Arial";
                 canvasCtx2D.fillStyle = "white";
@@ -70,33 +69,30 @@ export class Planner {
             }
         }
         var product = this.Products[productKey];
-        depth++; // How deep in the chain we currently are.
-        // Width is how many ingredients deep we are
         if(product == null){ // No product found.
             Error(`${productKey} Error in product chain!`);
-            return "Error in product chain!";
+            return;
         }
+        var currentDepth = depth;
+        if(this.depthWidthTable[currentDepth] == null) this.depthWidthTable[currentDepth] = 0; // Set depth table width to 0;
+        depth++; // How deep in the chain we currently are.
         if(product.Formulas.length > 0){ // Product has components generate chain.
             var formula = product.Formulas[0]; // We will only use the first formula for now.
-            var chainStep: string = "";
-            var nextStep: string = "";
-            chainStep = `${chainStep} [${formula.Crafting}]`;
             var ingredientCount = 0;
             for(let ingredientsKey in formula.Ingredients){ // For each ingredient calculate how many we need.
                 ingredientCount++;
                 var ingredient = formula.Ingredients[ingredientsKey];
                 var ingredientsNeeded = countPerMinute*ingredient.count;
-                chainStep = `${chainStep} ${ingredient.name}(${ingredientsNeeded}/min)`;
-                nextStep = `${nextStep} ${this.GenerateProductChain(ingredient.name, ingredientsNeeded, " ", depth, width+ingredientCount-1, canvasCtx2D)}`;
+                this.GenerateProductChain(ingredient.name, ingredientsNeeded, depth, canvasCtx2D);
                 if(canvasCtx2D){ // If there is a canvas output the chain.
                     canvasCtx2D.font = "1rem Arial";
                     canvasCtx2D.fillStyle = "white";
-                    canvasCtx2D.fillText(`[${formula.Crafting}] ${ingredient.name}(${ingredientsNeeded}/min)`, 300*depth, ingredientCount*100+width*200, 250);
+                    canvasCtx2D.fillText(`[${formula.Crafting}] ${ingredient.name}(${ingredientsNeeded}/min)`, 300*depth, ingredientCount*100+this.depthWidthTable[currentDepth]*100, 250);
                 }
             }
-            return `${nextStep} ->\n ${chainStep} ->\n ${chain}`;
+            this.depthWidthTable[currentDepth] += formula.Ingredients.length; // Increase width by 1 for each ingredient.
         }
-        return "START"; // No formulas means base object end of chain.   
+        return; // No formulas means base object end of chain.   
     }
     
 }
