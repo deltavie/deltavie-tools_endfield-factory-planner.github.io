@@ -6,6 +6,7 @@ import productsJson from './aic-products/products.json';
 // Function to import files from require.context
 function importAll(r: Rspack.Context) {
     let files = {};
+    //@ts-ignore mapping strings should not be a problem
     r.keys().map(item => { files[item.replace('./', '')] = r(item); });
     return files;
 }

@@ -6,14 +6,16 @@
     "Aketine" : {"Formulas": []},
     "Citrome" : {"Formulas": []},
     "Buckflower" : {"Formulas": []},
+    "Jincao" : {"Formulas": []},
+    "Yazhen" : {"Formulas": []},
     "Cuprium Ore" : {"Formulas": []},
     "Clean Water" : {"Formulas": []},
-    "JinCao Solution": {
+    "Jincao Solution": {
         "Formulas": [
             {
                 "Ingredients": [
                     {
-                        "name": "JinCao Powder",
+                        "name": "Jincao Powder",
                         "count": 1
                     },
                     {
@@ -25,7 +27,7 @@
                 "CraftingTime": 2,
                 "Outputs": [
                     {
-                        "name": "JinCao Solution",
+                        "name": "Jincao Solution",
                         "count": 1
                     }
                 ]
@@ -596,6 +598,46 @@
             }
         ]
     },
+    "Jincao Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Jincao",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Jincao Powder",
+                        "count": 2
+                    }
+                ]
+            }
+        ]
+    },
+    "Yazhen Powder": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Yazhen",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Shredding Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Yazhen Powder",
+                        "count": 2
+                    }
+                ]
+            }
+        ]
+    },
     "Buckflower Powder": {
         "Formulas": [
             {
@@ -732,7 +774,7 @@
             }
         ]
     },
-    "Dense Origocurst Powder": {
+    "Dense Origocrust Powder": {
         "Formulas": [
             {
                 "Ingredients": [
@@ -1244,10 +1286,412 @@
             }
         ]
     },
-    "Ferrium Bottle-Water": {"Formulas": []},
-    "Ferrium Bottle-Jincao Solution": {"Formulas": []},
-    "Ferrium Bottle-Yazhen Solution": {"Formulas": []},
-    "Ferrium Bottle-Liquid Xiranite": {"Formulas": []},
-    "Cuprium Bottle-Jincao Solution": {"Formulas": []},
-    "Cuprium Bottle-Yazhen Solution" : {"Formulas": []}
+    "Ferrium Bottle-Water": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Bottle",
+                        "count": 1
+                    },
+                    {
+                        "name": "Clean Water",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ferrium Bottle-Water",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Ferrium Bottle-Jincao Solution": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Bottle",
+                        "count": 1
+                    },
+                    {
+                        "name": "Jincao Solution",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ferrium Bottle-Jincao",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Ferrium Bottle-Yazhen Solution": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Bottle",
+                        "count": 1
+                    },
+                    {
+                        "name": "Yazhen Solution",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ferrium Bottle-Yazhen Solution",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Ferrium Bottle-Liquid Xiranite": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Bottle",
+                        "count": 1
+                    },
+                    {
+                        "name": "Liquid Xiranite",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Ferrium Bottle-Liquid Xiranite",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cuprium Bottle-Jincao Solution": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium Bottle",
+                        "count": 1
+                    },
+                    {
+                        "name": "Jincao Solution",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cuprium Bottle-Jincao Solution",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Cuprium Bottle-Yazhen Solution": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium Bottle",
+                        "count": 1
+                    },
+                    {
+                        "name": "Yazhen Solution",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 2,
+                "Outputs": [
+                    {
+                        "name": "Cuprium Bottle-Yazhen Solution",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Industrial Explosives": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Amethyst Part",
+                        "count": 5
+                    },
+                    {
+                        "name": "Aketine Powder",
+                        "count": 1
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Industrial Explosives",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Buck Capsule [C]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Amethyst Bottle",
+                        "count": 5
+                    },
+                    {
+                        "name": "Buckflower Powder",
+                        "count": 5
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Buck Capsule [C]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Buck Capsule [B]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Bottle",
+                        "count": 10
+                    },
+                    {
+                        "name": "Buckflower Powder",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Buck Capsule [B]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Buck Capsule [A]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Steel Bottle",
+                        "count": 10
+                    },
+                    {
+                        "name": "Ground Buckflower Powder",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Buck Capsule [A]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Canned Citrome [C]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Amethyst Bottle",
+                        "count": 5
+                    },
+                    {
+                        "name": "Citrome Powder",
+                        "count": 5
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Canned Citrome [C]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Canned Citrome [B]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Bottle",
+                        "count": 10
+                    },
+                    {
+                        "name": "Citrome Powder",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Canned Citrome [B]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Canned Citrome [A]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Steel Bottle",
+                        "count": 10
+                    },
+                    {
+                        "name": "Ground Citrome Powder",
+                        "count": 10
+                    }
+                ],
+                "Crafting": "Filling Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Canned Citrome [A]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Jincao Drink": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Part",
+                        "count": 10
+                    },
+                    {
+                        "name": "Ferrium Bottle-Jincao",
+                        "count": 5
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Jincao Drink",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Yazhen Syringe [C]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Ferrium Part",
+                        "count": 10
+                    },
+                    {
+                        "name": "Ferrium Bottle-Yazhen Solution",
+                        "count": 5
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Yazhen Syringe [C]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Jincao Tea": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium Part",
+                        "count": 10
+                    },
+                    {
+                        "name": "Cuprium Bottle-Jincao Solution",
+                        "count": 5
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Jincao Tea",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "Yazhen Solution [A]": {
+        "Formulas": [
+            {
+                "Ingredients": [
+                    {
+                        "name": "Cuprium Part",
+                        "count": 10
+                    },
+                    {
+                        "name": "Cuprium Bottle-Yazhen Solution",
+                        "count": 5
+                    }
+                ],
+                "Crafting": "Packaging Unit",
+                "CraftingTime": 10,
+                "Outputs": [
+                    {
+                        "name": "Yazhen Solution [A]",
+                        "count": 1
+                    }
+                ]
+            }
+        ]
+    }
 }
