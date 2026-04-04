@@ -1,11 +1,12 @@
 import { Planner } from './endfield-factory-planner/Planner';
 import './index.css';
 
-const rootEl = document.querySelector('#root');
-
+// Create factory planner object.
 const planner: Planner = new Planner();
 planner.BuildProductChain("HC Valley Battery", 6);
 
+// Create app page.
+const rootEl = document.querySelector('#root');
 if (rootEl) {
   rootEl.innerHTML = `
   <div class="content">

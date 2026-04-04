@@ -1,5 +1,7 @@
 import { Formula, type Ingredient } from "./Formula";
 import type { Product } from "./Product";
+import { ProductChain } from "./ProductChain";
+import { ProductChainNode } from "./ProductChainNode";
 
 import productsJson from './aic-products/products.json';
 
@@ -12,7 +14,7 @@ function importAll(r: Rspack.Context) {
 }
 
 export class Planner {
-    // Products dictioanry.
+    // Products dictionary.
     Products: {[key: string]: Product} = {};
 
     // Create new planner and load products and formulas.
@@ -47,57 +49,68 @@ export class Planner {
         return true;
     }
 
+    CurrentProductChain: ProductChain = new ProductChain(); // Chain for current product selected.
     // Exposed function to provide functionality to app.
     BuildProductChain(product: string, countPerMinute: number){
-        const outputCanvas: HTMLCanvasElement | null = document.querySelector('#output-canvas'); // Temp get canvas.
-        var ctx = null;
-        if(outputCanvas){
-            ctx = outputCanvas.getContext("2d");
-            ctx?.clearRect(0,0,4000,3000);
-        }
-        this.depthWidthTable = {};
-        this.productsCount = 0;
-        this.GenerateProductChain(product, countPerMinute, 0, 0, ctx);
+        this.CurrentProductChain.DeleteChain(); // Clean up old chain.
+        this._DepthTable = {}; // Clean up depth table.
+        this.CurrentProductChain.StartNode = this.GenerateProductChain(product, countPerMinute);
+        console.log(this.CurrentProductChain.StartNode);
     }
 
-    private depthWidthTable: {[key: number]: number} = {}; // Tracks how wide each depth layer is.
-    private productsCount: number = 0; // How many products are in the chain used to tracking parents.
+    private _DepthTable: {[key: number]: number} = {} // Keep track of how many products are at each depth.
     // Function to generate chain of products needed to create product.
-    private GenerateProductChain(productKey: string, countPerMinute: number, parent: number=0, depth: number = 0, canvasCtx2D: CanvasRenderingContext2D|null = null){
-        if(depth == 0){ // Start chain.
-            if(canvasCtx2D){ // If there is a canvas output the chain.
-                canvasCtx2D.font = "1rem Arial";
-                canvasCtx2D.fillStyle = "white";
-                canvasCtx2D.fillText(`${productKey}(${countPerMinute}/min)`, 0, 100, 200);
-            }
-        }
-        var product = this.Products[productKey];
+    // Return: The node representing the start of the chain.
+    // productKey: product name in list of products.
+    // counterPerMinute: how many of this product is needed.
+    // depth(optional): how deep in the chain this product is.
+    // parentNodes(optional): what are the parent nodes of this product.
+    private GenerateProductChain(productKey: string, countPerMinute: number, depth: number = 0, parentNodes: ProductChainNode[]|null = null): ProductChainNode|null{
+        var product = this.Products[productKey]; // Get the current product.
         if(product == null){ // No product found.
             Error(`${productKey} Error in product chain!`);
-            return;
+            return null;
         }
-        var currentDepth = depth;
-        if(this.depthWidthTable[currentDepth] == null) this.depthWidthTable[currentDepth] = 0; // Set depth table width to 0;
-        depth++; // How deep in the chain we currently are.
-        if(product.Formulas.length > 0){ // Product has components generate chain.
+        // Create a node that is the current product.
+        var NewNode: ProductChainNode = new ProductChainNode();
+        NewNode.ProductName = productKey;
+        NewNode.ProductQuantity = countPerMinute;
+        if(parentNodes != null) NewNode.ParentNodes = parentNodes as ProductChainNode[];// Set the parent of this node.
+        // Set the depth and width of this node based on the depth table.
+        if(this._DepthTable[depth] == null) this._DepthTable[depth] = 0; // Set depth table width to 0 if first product at this depth.
+        NewNode.Depth = depth;
+        NewNode.Width = this._DepthTable[depth]; // Increase width at this depth by 1.
+        this._DepthTable[depth]++;
+        // Finally add node to list of all nodes.
+        this.CurrentProductChain.Nodes.push(NewNode);
+        // Create the next part of the chain by loop through the ingredients and outputs of the current product.
+        if(product.Formulas.length > 0){
             var formula = product.Formulas[0]; // We will only use the first formula for now.
-            var ingredientCount = 0;
             for(let ingredientsKey in formula.Ingredients){ // For each ingredient calculate how many we need.
-                this.productsCount++;
-                var myProductId = this.productsCount;
-                ingredientCount++;
                 var ingredient = formula.Ingredients[ingredientsKey];
                 var ingredientsNeeded = countPerMinute*ingredient.count;
-                this.GenerateProductChain(ingredient.name, ingredientsNeeded, this.productsCount, depth, canvasCtx2D);
-                if(canvasCtx2D){ // If there is a canvas output the chain.
-                    canvasCtx2D.font = "1rem Arial";
-                    canvasCtx2D.fillStyle = "white";
-                    canvasCtx2D.fillText(`(${parent}) [${formula.Crafting}] ${ingredient.name}(${ingredientsNeeded}/min) (${myProductId})`, 300*depth, ingredientCount*100+this.depthWidthTable[currentDepth]*100, 250);
+                var childNode = this.GenerateProductChain(ingredient.name, ingredientsNeeded, depth+1, [NewNode]); // Ingredient is at depth+1.
+                if(childNode != null){
+                    childNode.CraftingStation = formula.Crafting as string; // Set crafting station
+                    NewNode.ChildNodes.push(childNode);
                 }
             }
-            this.depthWidthTable[currentDepth] += formula.Ingredients.length; // Increase width by 1 for each ingredient.
+            for(let outputKey in formula.Outputs){ // Calculate if there are other outputs created when making this product to show on the chain.
+                var output = formula.Outputs[outputKey];
+                if(output.name == productKey) continue; // Ignore if output product is the current node.
+                // We don't care about generating the product chain of an output so we just create a new node at depth-1.
+                var OutputNode: ProductChainNode = new ProductChainNode();
+                OutputNode.ProductName = output.name;
+                OutputNode.ProductQuantity = output.count*countPerMinute;
+                OutputNode.Depth = depth-1; // Calculate depth and width of new created output node.
+                OutputNode.Width = this._DepthTable[depth-1];
+                this._DepthTable[depth-1]++;
+                this.CurrentProductChain.Nodes.push(OutputNode); // Add output node to all nodes.
+                OutputNode.ChildNodes.push(NewNode); // Add current node to output node's children.
+                NewNode.ParentNodes.push(OutputNode); // Add output node to current node's parent.
+            }
         }
-        return; // No formulas means base object end of chain.   
+        return NewNode; // Return the created node.
     }
     
 }
