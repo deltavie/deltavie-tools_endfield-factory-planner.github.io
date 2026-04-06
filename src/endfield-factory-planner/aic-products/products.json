@@ -1327,7 +1327,7 @@
                 "CraftingTime": 2,
                 "Outputs": [
                     {
-                        "name": "Ferrium Bottle-Jincao",
+                        "name": "Ferrium Bottle-Jincao Solution",
                         "count": 1
                     }
                 ]
@@ -1607,7 +1607,7 @@
                         "count": 10
                     },
                     {
-                        "name": "Ferrium Bottle-Jincao",
+                        "name": "Ferrium Bottle-Jincao Solution",
                         "count": 5
                     }
                 ],
