@@ -13,8 +13,8 @@ const rootEl = document.querySelector('#root');
 if (rootEl) {
   rootEl.innerHTML = `
   <div class="content">
-    <h1>Endfield Factory Planner</h1>
-    <p>Latest Game Patch: 1.1 App Version: 1.0</p>
+    <h1>Endfield Simple AIC Planner</h1>
+    <p>Updated to Game Patch: 1.1</p>
     <div class="search">
       <input type="search" id="product-search" name="product-search-bar" placeholder="Enter product name..."/>
       <input type="number" id="product-quantity" name="quantity" min="0" max="999999" step="0.1" value="1" required />
