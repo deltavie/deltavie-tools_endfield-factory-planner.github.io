@@ -1,5 +1,7 @@
 import { Planner } from './endfield-factory-planner/Planner';
+import { PlannerCamera } from './endfield-factory-planner/ui-and-control/PlannerCamera';
 import { Engine } from './game-engine/Engine';
+import { MouseButtons } from './game-engine/Mouse';
 import './index.css';
 
 // Create factory planner object.
@@ -21,9 +23,7 @@ if (rootEl) {
       <div class="product-search-dropdown" id="dropdown-container">
       </div>
     </div>
-    <div class="canvas">
-          <canvas id="output-canvas" width="1280px" height="720px"></canvas>
-    </div>   
+    <canvas id="output-canvas" width="1280px" height="720px"></canvas>
   </div>
 `;
 
@@ -65,21 +65,59 @@ if (rootEl) {
   }
 
   // Initialize engine for HTML canvas.
+  // Add mouse listener events.
   const canvas2D = rootEl.querySelector("#output-canvas");
   if(canvas2D){
-    Engine.Initialize2DHtmlCanvas(canvas2D as HTMLCanvasElement);
+    var canvas = (canvas2D as HTMLCanvasElement);
+    Engine.Initialize2DHtmlCanvas(canvas);
+    canvas.addEventListener("mousemove", (event) => {
+      var rect = canvas.getBoundingClientRect();
+      var scaleX = canvas.width / rect.width;
+      var scaleY = canvas.height / rect.height;
+      Engine.UpdateMousePosition(
+        (event.clientX - rect.left) * scaleX,
+        (event.clientY - rect.top) * scaleY
+      )
+    })
+    canvas.addEventListener("mousedown", (event) => {
+      var button = event.button;
+      switch(button){
+        case 0:
+          Engine.UpdateMouseState(MouseButtons.MOUSE1, true);
+          break;
+        case 1:
+          Engine.UpdateMouseState(MouseButtons.MOUSE2, true);
+          break;
+      }
+    })
+    canvas.addEventListener("mouseup", (event) => {
+      var button = event.button;
+      switch(button){
+        case 0:
+          Engine.UpdateMouseState(MouseButtons.MOUSE1, false);
+          break;
+        case 1:
+          Engine.UpdateMouseState(MouseButtons.MOUSE2, false);
+          break;
+      }
+    })
   }
 }
 
+// Setup the engine properities.
+const UICamera = new PlannerCamera();
+Engine.MainCamera = UICamera;
+Engine.Instantiate(UICamera);
 // Start engine render loop.
 var EngineRenderTimerId: number = 0;
 const nextFrame = (timestamp: DOMHighResTimeStamp) => {
+  Engine.Clock();
   Engine.Render();
   EngineRenderTimerId = requestAnimationFrame(nextFrame);
 }
-//EngineRenderTimerId = requestAnimationFrame(nextFrame);
+EngineRenderTimerId = requestAnimationFrame(nextFrame);
 // Start engine logic loop.
-var EngineLogicInterval = setInterval(function() {
-  Engine.Clock();
-  Engine.Render();
-}, 500);
+// var EngineLogicInterval = setInterval(function() {
+//   Engine.Clock();
+//   Engine.Render();
+// }, 500);
